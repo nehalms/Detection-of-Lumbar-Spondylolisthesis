@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 70px 100px;
+            font-size: 17px;
+            background-image: url('../static/images/background.jpg');
+            background-size: auto;
+        }
+
+        .container{
+            align-items: center;
+            margin-top: 120px;
+            justify-content: center;
+            width: 78%;
+            background-color: transparent;
+        }
+
+        h2{
+            text-align: center;
+        }
+
+        .inner_1{
+            padding: 20px;
+            background-color:rgb(249, 252, 251);
+            border-radius: 7px;
+            width: 50%;
+            margin: auto;
+            border: 2px solid black;
+            text-align: center;
+        }
+
+        .inner_2{
+            text-align: center;
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+
+        h1{
+            text-align: center;
+            margin: none;
+            color:black;
+        }
+
+        form{
+            display: inline;
+        }
+
+        input[type="submit"]{
+            background-color:gold;
+            border: 2px solid goldenrod;
+            padding: 12px 20px;
+            margin: 10px;
+            border-radius: 5px 10px 5px 15px;
+            cursor: pointer;
+            width: 20%;
+        }
+
+        input[type="submit"]:hover{
+            background-color: rgb(240, 255, 32);  
+        }
+    </style>
+    {% load static %}
+    <link rel="parking icon" type="image/png" href="{% static 'images/ICON/apple-touch-icon.png' %}">
+    <title>WELCOME</title>
+</head>
+<body>
+    <div class="container">
+        <!-- <h2 class="mt-3">MEDICAL APPLICATION</h2> -->
+        <div class="inner_1 mt-4">
+            <h2>LUMBAR SPONDYLOLISTHESIS DETECTION</h2>
+        </div>
+        <div class="inner_2">
+            <form class="in" action="/user" method="post"> {% csrf_token %}
+                <input type="submit" value="USER">
+            </form>
+            <form class="out" action="/admin" method="post"> {% csrf_token %}
+                <input type="submit" value="ADMIN">
+            </form>
+        </div>
+    </div>
+    <script>
+        if ('{{flag}}' == 1){
+            alert('{{alert}}')
+        }
+    </script>
+</body>
+</html>
